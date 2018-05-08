@@ -1,2 +1,2 @@
 # redisPagination
-pagination ovet redis 
+pagination over redis

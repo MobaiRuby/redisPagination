@@ -33,7 +33,12 @@ const (
 
 func Paginate(opt *Options) Paginator {
 	// get redis client
-	getRedisClient(opt.Rp)
+	getRedisClient(&redis.Options{
+		Addr:     opt.Rp.Addr,
+		Password: opt.Rp.Password,
+		DB:       opt.Rp.DB,
+		PoolSize: opt.Rp.PoolSize,
+	})
 
 	switch client.Type(opt.P.Key).Val() {
 	case dataTypeList:
